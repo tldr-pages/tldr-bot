@@ -1,0 +1,12 @@
+[Unit]
+Description=Job that runs the tldr-bot
+
+[Service]
+Type=forking
+EnvironmentFile=/home/agniva/.bootstraprc
+ExecStart=/usr/local/bin/flask run --port=${PORT}
+ExecStop=/usr/bin/pkill flask
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
