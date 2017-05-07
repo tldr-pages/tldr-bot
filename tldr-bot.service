@@ -2,11 +2,14 @@
 Description=Job that runs the tldr-bot
 
 [Service]
-Type=forking
 EnvironmentFile=/home/agniva/.bootstraprc
-ExecStart=/usr/local/bin/flask run --port=${PORT}
-ExecStop=/usr/bin/pkill flask
-Restart=on-failure
+ExecStart=/usr/local/bin/uwsgi --socket localhost:${PORT} --wsgi-file /home/agniva/post_comment.py --callable app --master
+RuntimeDirectory=uwsgi
+Restart=always
+KillSignal=SIGQUIT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
 
 [Install]
 WantedBy=multi-user.target
