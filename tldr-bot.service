@@ -2,8 +2,8 @@
 Description=Job that runs the tldr-bot
 
 [Service]
-EnvironmentFile=/home/agniva/.bootstraprc
-ExecStart=/usr/local/bin/uwsgi --socket localhost:${PORT} --wsgi-file /home/agniva/post_comment.py --callable app --master
+EnvironmentFile=/srv/tldr-bot/.bootstraprc
+ExecStart=/usr/local/bin/uwsgi --socket localhost:${PORT} --wsgi-file /srv/tldr-bot/post_comment.py --callable app --single-interpreter
 RuntimeDirectory=uwsgi
 Restart=always
 KillSignal=SIGQUIT
