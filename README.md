@@ -14,7 +14,8 @@ GITHUB_URL=https://api.github.com
 BOT_TOKEN=<token>
 REPO_SLUG=tldr-pages/tldr
 PORT=6129
-FLASK_APP=/path/to/post_comment.py
+FLASK_APP=/path/to/app/post_comment.py
+APP_ROOT=/path/to/app
 ```
 
 Typically, the service is fronted by nginx. So you need to set the proper nginx config too.
