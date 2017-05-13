@@ -25,7 +25,7 @@ def post_comment():
   headers = {'Authorization': auth_token}
   r = requests.post(url, json=json_data, headers=headers)
 
-  #Send the bill content to the printer
+  #Send response back to github
   return_code = r.status_code
   if return_code == 201:
     return_string = 'success'
