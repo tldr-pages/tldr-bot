@@ -1,5 +1,5 @@
 # tldr-bot
-A simple bot that performs automation tasks on the main tldr repo
+A simple [bot](https://github.com/tldr-bot) that performs automation tasks on the main tldr repo
 
 ## QuickStart
 
