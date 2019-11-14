@@ -1,15 +1,19 @@
 [Unit]
 Description=Job that runs the tldr-bot
+Wants=network-online.target
+After=network-online.target
 
 [Service]
-EnvironmentFile=${APP_ROOT}/.bootstraprc
-ExecStart=/usr/local/bin/uwsgi --socket localhost:${PORT} --wsgi-file ${APP_ROOT}/post_comment.py --callable app --single-interpreter
-RuntimeDirectory=uwsgi
-Restart=always
-KillSignal=SIGQUIT
+User=tldr-bot
+Group=tldr-bot
 Type=notify
-StandardError=syslog
+KillSignal=SIGQUIT
 NotifyAccess=all
+Restart=always
+RuntimeDirectory=uwsgi
+StandardError=syslog
+EnvironmentFile=/path/to/environment_file
+ExecStart=/usr/local/bin/uwsgi --socket localhost:${PORT} --wsgi-file ${APP_ROOT}/tldr_bot.py --callable app --single-interpreter
 
 [Install]
 WantedBy=multi-user.target
