@@ -8,15 +8,15 @@ from flask import Flask, request, make_response
 app = Flask(__name__)
 
 def post_comment(issue_id, body):
-    url     = '{}/repos/{}/issues/{}/comments'.format(GITHUB_API_URL, REPO_SLUG, issue_id)
+    url = '{}/repos/{}/issues/{}/comments'.format(GITHUB_API_URL, REPO_SLUG, issue_id)
     headers = {'Authorization': 'token ' + BOT_TOKEN}
-    data    = {'body': body}
+    data = {'body': body}
 
     return requests.post(url, json=data, headers=headers)
 
 
 def check_already_commented(issue_id):
-    url  = '{}/repos/{}/issues/{}/comments'.format(GITHUB_API_URL, REPO_SLUG, issue_id)
+    url = '{}/repos/{}/issues/{}/comments'.format(GITHUB_API_URL, REPO_SLUG, issue_id)
     resp = requests.get(url)
 
     if resp.status_code != 200:
@@ -36,7 +36,7 @@ def comment():
     if data is None:
         return make_response('Invalid JSON or inappropriate Content-Type.', 400)
 
-    pr_id        = data.get('pr_id')
+    pr_id = data.get('pr_id')
     comment_body = data.get('body')
 
     # Check if request is valid.
