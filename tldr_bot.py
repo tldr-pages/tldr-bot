@@ -24,7 +24,6 @@ def check_already_commented(issue_id):
         return True
 
     comments = resp.json()
-    print(comments)
     return any(c['user']['login'] == 'tldr-bot' for c in comments)
 
 
