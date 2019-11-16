@@ -4,6 +4,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
+SyslogIdentifier=tldr-bot
 User=tldr-bot
 Group=tldr-bot
 Type=notify
