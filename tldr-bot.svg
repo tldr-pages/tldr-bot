@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80">
+   <rect width="50" height="50" x="15" y="25" rx="10" ry="10" fill="#203050"/>
+   <line x1="40" y1="25" x2="45" y2="10" stroke="#203050" stroke-width="5" stroke-linecap="round"/>
+   <circle r="5" cx="45" cy="10" fill="#203050"/>
+   <text font-weight="bold" font-size="30" font-family="Sometype Mono" fill="#85c5be" transform="scale(0.9 1.1)">
+      <tspan x="25" y="55">$</tspan>
+      <tspan x="48" y="54">▮</tspan>
+   </text>
+</svg>
