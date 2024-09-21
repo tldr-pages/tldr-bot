@@ -63,14 +63,6 @@ def comment():
     pr_id = data.get('pr_id')
     comment_body = data.get('body')
 
-    # Determine the identifier from the comment body
-    if "<!-- tldr-bot - errors -->" in comment_body:
-        identifier = "<!-- tldr-bot - errors -->"
-    elif "<!-- tldr-bot - check-results -->" in comment_body:
-        identifier = "<!-- tldr-bot - check-results -->"
-    else:
-        identifier = None
-
     # Check if request is valid.
     if pr_id is None or comment_body is None:
         return make_response('Missing required JSON fields', 400)
@@ -80,6 +72,14 @@ def comment():
         return make_response('already commented', 200)
 
     if request.path == "/comment/recreate":
+        # Determine the identifier from the comment body
+        if "<!-- tldr-bot - errors -->" in comment_body:
+            identifier = "<!-- tldr-bot - errors -->"
+        elif "<!-- tldr-bot - check-results -->" in comment_body:
+            identifier = "<!-- tldr-bot - check-results -->"
+        else:
+            identifier = None
+
         if identifier:
             comment_id = previous_comment(pr_id, identifier)
         else:
