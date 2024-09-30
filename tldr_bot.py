@@ -33,7 +33,7 @@ def previous_comment(issue_id, identifier):
 
     comments = resp.json()
     for comment in comments:
-        if comment['user']['login'] == 'tldr-bot' and identifier in comment['body']:
+        if comment['user']['login'] == BOT_USERNAME and identifier in comment['body']:
             return comment['id']
     return None
 
