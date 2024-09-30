@@ -91,8 +91,8 @@ def comment():
             if delete_resp.status_code != 204:
                 return make_response(delete_resp.text, 500)
 
-        # Post comment.
-        resp = post_comment(pr_id, comment_body)
+    # Post comment.
+    resp = post_comment(pr_id, comment_body)
 
     if resp.status_code != 201:
         return make_response(resp.text, 500)
