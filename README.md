@@ -10,6 +10,7 @@ First of all, set the needed environment variables:
 
     FLASK_APP=/path/to/app/tldr_bot.py
     BOT_TOKEN=<token>
+    BOT_USERNAME=<username>
     REPO_SLUG=tldr-pages/tldr
     PORT=<port>
 
