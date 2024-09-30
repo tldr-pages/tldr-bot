@@ -47,7 +47,7 @@ def check_already_commented(issue_id):
         return True
 
     comments = resp.json()
-    return any(c['user']['login'] == 'tldr-bot' for c in comments)
+    return any(c['user']['login'] == BOT_USERNAME for c in comments)
 
 
 @app.route('/', methods=['POST']) # old route, to be removed
@@ -110,8 +110,9 @@ def status():
 
 GITHUB_API_URL = 'https://api.github.com'
 BOT_TOKEN = os.getenv('BOT_TOKEN')
+BOT_USERNAME = os.getenv('BOT_USERNAME')
 REPO_SLUG = os.getenv('REPO_SLUG')
 
-if BOT_TOKEN is None or REPO_SLUG is None:
+if BOT_TOKEN is None or BOT_USERNAME is None or REPO_SLUG is None:
   print('Needed environment variables are not set.')
   sys.exit(1)
