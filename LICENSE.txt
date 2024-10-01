@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2017 - present tldr pages contributors
+Copyright © 2017—present the [tldr-pages team](https://github.com/orgs/tldr-pages/people)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
